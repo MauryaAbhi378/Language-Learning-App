@@ -1,4 +1,4 @@
-// import { Paywall } from "@/components/subscription/Paywall";
+import PayWall from "@/components/suscription/PayWall";
 import { ThemedText } from "@/components/themed-text";
 import { Colors } from "@/constants/theme";
 import { useAuth } from "@/ctx/AuthContext";
@@ -219,9 +219,7 @@ export default function OnboardingScreen() {
                 ]}
                 onPress={() => setSelectedLanguage(language.id)}
               >
-                <ThemedText
-                  style={styles.optionTitle}
-                >
+                <ThemedText style={styles.optionTitle}>
                   {language.title}
                 </ThemedText>
               </TouchableOpacity>
@@ -254,11 +252,7 @@ export default function OnboardingScreen() {
             ]}
             onPress={() => setLevel(l.id)}
           >
-            <ThemedText
-              style={styles.optionTitle}
-            >
-              {l.title}
-            </ThemedText>
+            <ThemedText style={styles.optionTitle}>{l.title}</ThemedText>
             <ThemedText style={[styles.optionDescription]}>
               {l.description}
             </ThemedText>
@@ -300,11 +294,7 @@ export default function OnboardingScreen() {
                 size={24}
                 color={isSelected ? Colors.primaryAccentColor : colors.icon}
               />
-              <ThemedText
-                style={styles.optionTitle}
-              >
-                {m.title}
-              </ThemedText>
+              <ThemedText style={styles.optionTitle}>{m.title}</ThemedText>
             </TouchableOpacity>
           );
         })}
@@ -335,11 +325,7 @@ export default function OnboardingScreen() {
               ]}
               onPress={() => toggleInterest(i)}
             >
-              <ThemedText
-                style={styles.tagText}
-              >
-                {i}
-              </ThemedText>
+              <ThemedText style={styles.tagText}>{i}</ThemedText>
             </TouchableOpacity>
           );
         })}
@@ -408,10 +394,10 @@ export default function OnboardingScreen() {
         </View>
       </KeyboardAvoidingView>
 
-      {/* <Paywall
+      <PayWall
         visible={showPaywall}
-        // onClose={() => router.replace("/lessons")}
-      /> */}
+        onClose={() => router.replace("/explore")}
+      />
     </SafeAreaView>
   );
 }
