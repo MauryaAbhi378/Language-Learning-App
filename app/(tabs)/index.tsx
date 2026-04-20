@@ -6,8 +6,16 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+import { useFonts } from "expo-font"
 
 export default function HomeScreen() {
+  const [fontsLoaded] = useFonts({
+    "SpaceMonoBold": require("../../assets/fonts/SpaceMono-Bold.ttf"),
+    "SpaceMonoRegular": require("../../assets/fonts/SpaceMono-Regular.ttf"),
+    "SairaStencil" : require("../../assets/fonts/SairaStencil-Italic-VariableFont_wdth,wght.ttf")
+  })
+
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -18,13 +26,13 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">Welcome</ThemedText>
         <HelloWave />
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+      <ThemedView >
+        <ThemedText  style={{fontFamily : "SairaStencil"}}>Step 1: Try it</ThemedText>
         <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
+          Edit <ThemedText type="defaultSemiBold" style={{fontFamily : "SairaStencil"}}>app/(tabs)/index.tsx</ThemedText> to see changes.
           Press{' '}
           <ThemedText type="defaultSemiBold">
             {Platform.select({
@@ -39,7 +47,7 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <Link href="/modal">
           <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+            <ThemedText style={{fontFamily : "SpaceMonoBold"}} >Step 2: Explorrr</ThemedText>
           </Link.Trigger>
           <Link.Preview />
           <Link.Menu>
