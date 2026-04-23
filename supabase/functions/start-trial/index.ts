@@ -7,6 +7,7 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
+// Handle preflight request
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -48,7 +49,7 @@ Deno.serve(async (req) => {
       Date.now() + 7 * 24 * 60 * 60 * 1000,
     ).toISOString();
 
-    const { error: updateError } = await adminClient.from("profiles").upsert({
+    const { error: updateError } = await adminClient.from("profile").upsert({
       id: user.id,
       is_premium: true,
       premium_expires_at: expiresAt,

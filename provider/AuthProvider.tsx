@@ -8,7 +8,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
     const [profile, setProfile] = useState<any | null>(null)
     const [loading, setLoading] = useState(true)
 
-    const premiumExpiresAt: string | null = profile?.is_premium ?? null
+    const premiumExpiresAt: string | null = profile?.premium_expires_at ?? null
     const isPremium = !!profile?.is_premium && (!premiumExpiresAt || new Date(premiumExpiresAt) > new Date())
 
     const loadProfile = async (s: Session | null) => {

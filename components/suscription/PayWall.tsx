@@ -241,7 +241,7 @@ export default function Paywall({
                 </Text>
               </View>
               <View style={styles.planPriceContainer}>
-                <Text style={styles.planPrice}>{selectedPlan.price} kr.</Text>
+                <Text style={styles.planPrice}>{selectedPlan.price} Rs.</Text>
                 <Text style={styles.planPeriod}>{selectedPlan.period}</Text>
               </View>
             </View>
