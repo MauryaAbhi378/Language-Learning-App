@@ -35,7 +35,7 @@ const CLOSED_POSITION = MENU_HEIGHT - PEEK_MENU_HEIGHT;
 
 export default function IntroScreen() {
   const insets = useSafeAreaInsets();
-  const languages = ["Chinese", "Japanese", "Hindi", "German", "Korean"];
+  const languages = ["Chinese", "Japanese", "German", "Korean"];
   const [languageIndex, setLanguageIndex] = useState(0);
   const menuTranslateY = useSharedValue(CLOSED_POSITION);
   const menuContentOpacity = useSharedValue(1);

@@ -1,5 +1,10 @@
 import PayWall from "@/components/suscription/PayWall";
 import { ThemedText } from "@/components/themed-text";
+import {
+  COURSE_LANGUAGES,
+  CourseLanguage,
+  getCourseLanguageTitle,
+} from "@/constants/CourseData";
 import { Colors } from "@/constants/theme";
 import { useAuth } from "@/ctx/AuthContext";
 import { supabase } from "@/utils/supabase";
@@ -35,13 +40,6 @@ const LEVELS = [
     title: "Advanced",
     description: "I can express myself fluently.",
   },
-];
-
-const LANGUAGES = [
-  { id: "chinese", title: "Chinese" },
-  { id: "japanese", title: "Japanese" },
-  { id: "german", title: "German" },
-  { id: "french", title: "French" },
 ];
 
 const MOTIVATIONS = [
@@ -88,7 +86,8 @@ export default function OnboardingScreen() {
 
   const [step, setStep] = useState(0);
   const [name, setName] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
+  const [selectedLanguage, setSelectedLanguage] =
+    useState<CourseLanguage | null>(null);
   const [level, setLevel] = useState<string | null>(null);
   const [motivations, setMotivations] = useState<string[]>([]);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
@@ -113,9 +112,9 @@ export default function OnboardingScreen() {
     return false;
   };
 
-  const selectedLanguageLabel =
-    LANGUAGES.find((language) => language.id === selectedLanguage)?.title ??
-    "your selected language";
+  const selectedLanguageLabel = selectedLanguage
+    ? getCourseLanguageTitle(selectedLanguage)
+    : "your selected language";
 
   const saveProfile = async () => {
     try {
@@ -204,7 +203,7 @@ export default function OnboardingScreen() {
           contentContainerStyle={{ rowGap: 16 }}
           style={{ marginTop: 10 }}
         >
-          {LANGUAGES.map((language) => {
+          {COURSE_LANGUAGES.map((language) => {
             const isSelected = selectedLanguage === language.id;
 
             return (
@@ -396,7 +395,7 @@ export default function OnboardingScreen() {
 
       <PayWall
         visible={showPaywall}
-        onClose={() => router.replace("/explore")}
+        onClose={() => router.replace("/lessons")}
       />
     </SafeAreaView>
   );
