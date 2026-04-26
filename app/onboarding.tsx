@@ -1,9 +1,9 @@
-import PayWall from "@/components/suscription/PayWall";
+import PayWall from "@/components/subscription/PayWall";
 import { ThemedText } from "@/components/themed-text";
 import {
-  COURSE_LANGUAGES,
-  CourseLanguage,
-  getCourseLanguageTitle,
+    COURSE_LANGUAGES,
+    CourseLanguage,
+    getCourseLanguageTitle,
 } from "@/constants/CourseData";
 import { Colors } from "@/constants/theme";
 import { useAuth } from "@/ctx/AuthContext";
@@ -12,13 +12,13 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { router } from "expo-router";
 import { useState } from "react";
 import {
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  View,
+    KeyboardAvoidingView,
+    Platform,
+    ScrollView,
+    StyleSheet,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
